@@ -35,7 +35,7 @@ const Requests = ()=>{
     
     //if(!requestData) return
 
-    if(requestData===null) return <h1 className="my-10 text-center text-red-500">No Requests Found!!!!</h1>
+    if(requestData.length===0) return <h1 className="my-10 text-center text-red-500">No Requests Found!!!!</h1>
    
     return (
       <div className="flex flex-col justify-center  w-[100vw]">
