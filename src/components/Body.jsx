@@ -12,7 +12,7 @@ const Body = () => {
   const fetchUserProfile = async () => {
     try {
       if(!user){
-      const res = await axios.get("http://localhost:3030/profile", {
+      const res = await axios.get("/api/profile", {
         withCredentials: true,
       });
     

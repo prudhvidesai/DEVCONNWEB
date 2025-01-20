@@ -29,7 +29,7 @@ const Profile = () => {
     setError(" ")
     try {
       const res = await axios.patch(
-        "http://localhost:3030/profile/edit",
+        "/api/profile/edit",
         { userName, age, gender, about, imageUrl },
         {withCredentials:true}
       );

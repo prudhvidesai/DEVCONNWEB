@@ -13,7 +13,7 @@ const Feed = ()=>{
 
     const fetchFeed = async()=>{
         try{
-           const feed = await axios.get("http://localhost:3030/user/feed",{withCredentials:true});
+           const feed = await axios.get("/api/user/feed",{withCredentials:true});
            //console.log(feed)
            dispatch(addFeed(feed.data))
         }catch(err){

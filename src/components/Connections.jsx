@@ -8,7 +8,7 @@ const Connections = () => {
   const dispatch = useDispatch();
   const fetchConnections = async () => {
     try {
-      const res = await axios.get("http://localhost:3030/user/connections", {
+      const res = await axios.get("/api/user/connections", {
         withCredentials: true,
       });
       //console.log(res);

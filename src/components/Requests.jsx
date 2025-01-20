@@ -8,7 +8,7 @@ const Requests = ()=>{
     const dispatch = useDispatch()
     const fetchRequests = async()=>{
           try {
-            const res = await axios.get("http://localhost:3030/user/requests", {
+            const res = await axios.get("/api/user/requests", {
               withCredentials: true,
             });
             console.log(res);
@@ -26,7 +26,7 @@ const Requests = ()=>{
 
    const handleRequestBtn = async(status,_id)=>{
     const reviewData = await axios.post(
-      "http://localhost:3030/connectionRequest/review/"+_id+"/"+status,{},{withCredentials:true}
+      "/api/connectionRequest/review/"+_id+"/"+status,{},{withCredentials:true}
     );
      console.log(reviewData);
      dispatch(removeRequests(_id))

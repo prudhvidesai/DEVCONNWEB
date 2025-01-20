@@ -10,7 +10,7 @@ const UserCard = (props)=>{
   
   const handleSendRequest = async(id,status)=>{
      const res = await axios.post(
-       "http://localhost:3030/connectionRequest/send/"+id+"/"+status,{},{withCredentials:true}
+       "/api/connectionRequest/send/"+id+"/"+status,{},{withCredentials:true}
      );
      dispatch(removeFeed(id))
   }
