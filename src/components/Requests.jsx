@@ -2,13 +2,14 @@ import axios from "axios"
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addRequests,removeRequests } from "../utils/requestSlice";
+import BASE_URL from "../constants/constants";
 
 const Requests = ()=>{
     const requestData = useSelector(store=>store.request)
     const dispatch = useDispatch()
     const fetchRequests = async()=>{
           try {
-            const res = await axios.get("/api/user/requests", {
+            const res = await axios.get(BASE_URL+"user/requests", {
               withCredentials: true,
             });
             console.log(res);
@@ -26,7 +27,7 @@ const Requests = ()=>{
 
    const handleRequestBtn = async(status,_id)=>{
     const reviewData = await axios.post(
-      "/api/connectionRequest/review/"+_id+"/"+status,{},{withCredentials:true}
+      BASE_URL+"connectionRequest/review/"+_id+"/"+status,{},{withCredentials:true}
     );
      console.log(reviewData);
      dispatch(removeRequests(_id))
@@ -35,7 +36,7 @@ const Requests = ()=>{
     
     //if(!requestData) return
 
-    if(requestData.length===0) return <h1 className="my-10 text-center text-red-500">No Requests Found!!!!</h1>
+    if(requestData.length===0) return <h1 className="my-10 text-center text-green-500 text-xl my-[300px]">No Requests Found!!!!</h1>
    
     return (
       <div className="flex flex-col justify-center  w-[100vw]">

@@ -3,6 +3,7 @@ import UserCard from "./UserCard";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import {addUser} from '../utils/userSlice'
+import BASE_URL from "../constants/constants";
 
 const Profile = () => {
   const user = useSelector((store) => store.user);
@@ -29,7 +30,7 @@ const Profile = () => {
     setError(" ")
     try {
       const res = await axios.patch(
-        "/api/profile/edit",
+        BASE_URL+"profile/edit",
         { userName, age, gender, about, imageUrl },
         {withCredentials:true}
       );

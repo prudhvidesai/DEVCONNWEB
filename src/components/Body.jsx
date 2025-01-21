@@ -4,6 +4,7 @@ import axios from "axios";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addUser } from "../utils/userSlice";
+import BASE_URL from "../constants/constants";
 
 const Body = () => {
   const user = useSelector(store=>store.user)
@@ -12,7 +13,7 @@ const Body = () => {
   const fetchUserProfile = async () => {
     try {
       if(!user){
-      const res = await axios.get("/api/profile", {
+      const res = await axios.get(BASE_URL+"profile", {
         withCredentials: true,
       });
     

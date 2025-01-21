@@ -2,13 +2,14 @@ import axios from "axios";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addConnection } from "../utils/connectionSlice";
+import BASE_URL from '../constants/constants'
 
 const Connections = () => {
   const connectionData = useSelector((store) => store.connection);
   const dispatch = useDispatch();
   const fetchConnections = async () => {
     try {
-      const res = await axios.get("/api/user/connections", {
+      const res = await axios.get(BASE_URL+"user/connections", {
         withCredentials: true,
       });
       //console.log(res);
@@ -22,7 +23,7 @@ const Connections = () => {
   if (!connectionData) return;
   if (connectionData.length === 0)
     return (
-      <h1 className="text-white text-center text-xl my-10">
+      <h1 className="text-green-500 text-center text-xl my-10">
         No Connections to show!!!!
       </h1>
     );
