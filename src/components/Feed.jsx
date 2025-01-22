@@ -27,7 +27,7 @@ useEffect(()=>{
 fetchFeed()
 },[])
 if(!feedData) return
-if(feedData.length===0) return <h1 className="text-center text-xl text-green-500 my-[300px]">No more users found!!!</h1>
+if(feedData.length===0||feedData===null) return <h1 className="text-center text-xl text-green-500 my-[300px]">No more users found!!!</h1>
 return(
     <div className="flex justify-center mt-6">
         {feedData&&<UserCard user={feedData[0]}/>}
