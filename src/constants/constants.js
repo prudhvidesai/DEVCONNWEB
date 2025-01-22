@@ -1,4 +1,8 @@
 
-const BASE_URL = "/api/"
 
-export default BASE_URL
+const BASE_URL = location.hostname === "localhost" ? "http://localhost:3032/" : "/api/";
+
+export default BASE_URL;
+
+
+
